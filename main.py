@@ -5,7 +5,7 @@ import os
 import random
 
 from email.mime.text import MIMEText
-from oauth.oauth2 import Consumer
+from lib.oauth2 import Consumer
 
 DATA_FILE = 'data.json'
 IMGUR_AUTH_URL = 'https://api.imgur.com/oauth2/authorize'
