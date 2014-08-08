@@ -38,19 +38,19 @@ class Consumer:
         r = requests.post(token_url, data=payload)
         return json.loads(r.text)['access_token']
 
-    def api_request_get(self, url, access_token):
+    def api_request_get(self, url, access_token, **kwargs):
         r = requests.get(url, 
-            headers={'Authorization': 'Bearer {0}'.format(access_token)}
+            headers={'Authorization': 'Bearer {0}'.format(access_token)},
+            params=kwargs
         )
-        return json.loads(r.text)['data']
+        return json.loads(r.text)
 
     def api_request_post(self, url, access_token, **kwargs):
-        payload = {key: val for key, val in kwargs.items()}
         r = requests.post(url, 
             headers={
                 'Content-Type':  'application/json',
                 'Authorization': 'Bearer {0}'.format(access_token),
             },
-            data=json.dumps(payload)
+            data=json.dumps(kwargs)
         )
         return json.loads(r.text)

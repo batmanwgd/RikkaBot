@@ -105,7 +105,7 @@ def get_random_image(imgur_consumer, imgur_access_token, album_name):
     albums = imgur_consumer.api_request_get(
         'https://api.imgur.com/3/account/me/albums/', imgur_access_token
     
-    )
+    )['data']
     album_id = None
     for album in albums:
         if album['title'] == album_name:
@@ -113,7 +113,7 @@ def get_random_image(imgur_consumer, imgur_access_token, album_name):
     data = imgur_consumer.api_request_get(
         'https://api.imgur.com/3/account/me/album/{0}'.format(album_id), 
         imgur_access_token
-    )
+    )['data']
     images = [image['link'] for image in data['images']]
 
     return random.sample(images, 1)[0]
