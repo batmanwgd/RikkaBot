@@ -1,6 +1,6 @@
 import os
 
-from insource import Insource
+from source import Source
 from oauth2 import Consumer
 
 AUTH_URL = 'https://api.imgur.com/oauth2/authorize'
@@ -8,9 +8,9 @@ TOKEN_URL = 'http://api.imgur.com/oauth2/token'
 ALBUMS_URL = 'http://api.imgur.com/3/account/me/albums/'
 ALBUM_URL = 'https://api.imgur.com/3/account/me/album/'
 
-class Imgur_Insource:
-    def __init__(data_file, client_id, client_secret):
-        Insource.__init__(data_file)
+class Imgur(Source):
+    def __init__(self, data_file, client_id, client_secret):
+        Source.__init__(data_file)
         self.consumer = Consumer(client_id, client_secret)
         self.access_token = None
         
