@@ -14,7 +14,7 @@ class Consumer:
             url += '&{0}'.format('&'.join(
                 ['{0}={1}'.format(key, val) for key, val in kwargs.items()]
             ))
-        print 'Go to {0} in a webrowser!'.format(url)
+        return 'Go to {0} in a web browser!'.format(url)
 
     def get_request_token(self, token_url, grant_type, **kwargs):
         payload = {

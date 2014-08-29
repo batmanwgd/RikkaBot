@@ -70,7 +70,7 @@ def get_new_refresh_tokens(
     from_address
 ):
     if not imgur_refresh_token:
-        imgur_consumer.authorize(IMGUR_AUTH_URL, 'pin')
+        print imgur_consumer.authorize(IMGUR_AUTH_URL, 'pin')
         imgur_refresh_token = imgur_consumer.get_request_token(
             IMGUR_TOKEN_URL, 
             'pin',
@@ -78,7 +78,7 @@ def get_new_refresh_tokens(
         )
 
     if not google_refresh_token:
-        google_consumer.authorize(
+        print google_consumer.authorize(
             GOOGLE_AUTH_URL, 
             'code', 
             redirect_uri='urn:ietf:wg:oauth:2.0:oob', 
