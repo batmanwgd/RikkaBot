@@ -11,7 +11,13 @@ class Test_Oauth(unittest.TestCase):
             self.text = text
 
     def setUp(self):
+        self.old_requests_get = oauth2.requests.get
+        self.old_requests_post = oauth2.requests.post
         self.consumer = oauth2.Consumer('test_client_id', 'test_client_secret')
+
+    def tearDown(self):
+        oauth2.requests.get = self.old_requests_get
+        oauth2.requests.post = self.old_requests_post
 
     def test_authorize(self):
         auth_url = 'https://localhost/'

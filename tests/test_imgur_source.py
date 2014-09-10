@@ -17,7 +17,7 @@ class Test_Imgur_Source(unittest.TestCase):
         self.old_authorize = imgur_source.Consumer.authorize
         self.old_get_request_token = imgur_source.Consumer.get_request_token
         self.old_get_access_token = imgur_source.Consumer.get_access_token
-        self.old_api_request_get = imgur_source.Consumer.api_request_get
+        self.old_api_requests_get = imgur_source.Consumer.api_request_get
 
         imgur_source.__builtins__['raw_input'] = \
             lambda prompt='' : 'pin'
@@ -58,12 +58,13 @@ class Test_Imgur_Source(unittest.TestCase):
         )
 
     def tearDown(self):
-        os.close(self.fd)
         imgur_source.__builtins__['raw_input'] = self.old_raw_input
         imgur_source.Consumer.authorize = self.old_authorize
         imgur_source.Consumer.get_request_token = self.old_get_request_token
         imgur_source.Consumer.get_access_token = self.old_get_access_token
-        imgur_source.Consumer.api_request_get = self.old_api_request_get
+        imgur_source.Consumer.api_request_get = self.old_api_requests_get
+
+        os.close(self.fd)
 
     def test_setUp_no_token(self):
         self.imgur_source.setUp()
