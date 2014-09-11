@@ -5,8 +5,8 @@ from source import Source
 from oauth2 import Consumer
 
 AUTH_URL = 'https://api.imgur.com/oauth2/authorize'
-TOKEN_URL = 'http://api.imgur.com/oauth2/token'
-ALBUMS_URL = 'http://api.imgur.com/3/account/me/albums/'
+TOKEN_URL = 'https://api.imgur.com/oauth2/token'
+ALBUMS_URL = 'https://api.imgur.com/3/account/me/albums/'
 ALBUM_URL = 'https://api.imgur.com/3/account/me/album/'
 
 class Imgur(Source):
@@ -21,7 +21,7 @@ class Imgur(Source):
         except (IOError, ValueError, KeyError):
             refresh_token = None
         if not refresh_token:
-            self.consumer.authorize(AUTH_URL, 'pin')
+            print self.consumer.authorize(AUTH_URL, 'pin')
             refresh_token = self.consumer.get_request_token(
                 TOKEN_URL,
                 'pin',
