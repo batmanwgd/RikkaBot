@@ -1,13 +1,12 @@
-import os
 import random
 
 from source import Source
 from oauth2 import Consumer
 
+ALBUM_URL = 'https://api.imgur.com/3/account/me/album/'
+ALBUMS_URL = 'https://api.imgur.com/3/account/me/albums/'
 AUTH_URL = 'https://api.imgur.com/oauth2/authorize'
 TOKEN_URL = 'https://api.imgur.com/oauth2/token'
-ALBUMS_URL = 'https://api.imgur.com/3/account/me/albums/'
-ALBUM_URL = 'https://api.imgur.com/3/account/me/album/'
 
 class Imgur(Source):
     def __init__(self, data_file, client_id, client_secret):

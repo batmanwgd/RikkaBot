@@ -1,20 +1,9 @@
 import argparse
-import base64
-import json
-import os
-import random
-
-from email.mime.text import MIMEText
-from lib.oauth2 import Consumer
 
 from lib.google_source import Google
 from lib.imgur_source import Imgur
 
 DATA_FILE = 'data.json'
-GOOGLE_AUTH_URL = 'https://accounts.google.com/o/oauth2/auth'
-GOOGLE_TOKEN_URL = 'https://accounts.google.com/o/oauth2/token'
-IMGUR_AUTH_URL = 'https://api.imgur.com/oauth2/authorize'
-IMGUR_TOKEN_URL = 'https://api.imgur.com/oauth2/token'
 
 def main(
     imgur_client_id, 
