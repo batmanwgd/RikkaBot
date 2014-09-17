@@ -35,42 +35,42 @@ def main(
 def parse_args():
     parser = argparse.ArgumentParser()
 
-    parser.add_argument('--imgur-client-id', action='store', type=str, default=None,
-        help='The client id needed to authorize an application on Imgur'
-    )
-
-    parser.add_argument(
-        '--imgur-client-secret', action='store', type=str, default=None, 
-        help='The client secret needed to authorize an application on Imgur'
-    )
-
-    parser.add_argument(
-        '--google-client-id', action='store', type=str, default=None,
-        help='The client id needed to authorize an application on Google'
-    )
-    
-    parser.add_argument(
-        '--google-client-secret', action='store', type=str, default=None,
-        help='The client secret needed to authorize an application on Google'
-    )
-
-    parser.add_argument(
-        '--album', action='store', type=str, default=None,
-        help='The imgur album to grab images from'
-    )
-
     parser.add_argument(
         '--data-file', action='store', type=str, default=DATA_FILE,
         help='The file to store saved data in'
     )
+
+    parser.add_argument('imgur-client-id', action='store', type=str, default=None,
+        help='The client id needed to authorize an application on Imgur'
+    )
+
+    parser.add_argument(
+        'imgur-client-secret', action='store', type=str, default=None, 
+        help='The client secret needed to authorize an application on Imgur'
+    )
+
+    parser.add_argument(
+        'album', action='store', type=str, default=None,
+        help='The imgur album to grab images from'
+    )
+
+    parser.add_argument(
+        'google-client-id', action='store', type=str, default=None,
+        help='The client id needed to authorize an application on Google'
+    )
     
     parser.add_argument(
-        '--to-address', action='store', type=str, default=None,
+        'google-client-secret', action='store', type=str, default=None,
+        help='The client secret needed to authorize an application on Google'
+    )
+
+    parser.add_argument(
+        'to-address', action='store', type=str, default=None,
         help='The email address to send the image to'
     )
 
     parser.add_argument(
-        '--from-address', action='store', type=str, default=None,
+        'from-address', action='store', type=str, default=None,
         help='The email address to send the image from'
     )
 
